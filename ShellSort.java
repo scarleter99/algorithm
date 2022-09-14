@@ -28,7 +28,15 @@ public class ShellSort {
         int gap = dataArray.length / shrinkRatio;
 
         while ( gap > 0) {
-
+            for (int i = gap; i < n; i++) {
+                int tmp = dataArray[i];
+                int j;
+                for (j = i; (j >= gap) && (dataArray[j - gap] > tmp); j -= gap) {
+                    dataArray[j] = dataArray[j - gap];
+                }
+                dataArray[j] = tmp;
+            }
+            gap /= shrinkRatio;
         }
 
         System.out.println(countCmpOps + " " + countSwaps + " ");
