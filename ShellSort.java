@@ -25,14 +25,19 @@ public class ShellSort {
 
         // Algorithm
         int shrinkRatio = 2;
-        int gap = dataArray.length / shrinkRatio;
+        int gap = n / shrinkRatio;
 
         while ( gap > 0) {
             for (int i = gap; i < n; i++) {
                 int tmp = dataArray[i];
                 int j;
+                countCmpOps++;
                 for (j = i; (j >= gap) && (dataArray[j - gap] > tmp); j -= gap) {
                     dataArray[j] = dataArray[j - gap];
+                    countSwaps++;
+                    if ((j - gap) >= gap) {
+                        countCmpOps++;
+                    }
                 }
                 dataArray[j] = tmp;
             }
@@ -40,5 +45,6 @@ public class ShellSort {
         }
 
         System.out.println(countCmpOps + " " + countSwaps + " ");
+        //System.out.println(Arrays.toString(dataArray));
     }
 }

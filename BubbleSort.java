@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class InsertionSort {
+public class BubbleSort {
     static final int MAX_SIZE = 1000;
 
     public static void main(String[] args) {
@@ -16,27 +16,17 @@ public class InsertionSort {
                 dataArray[j] = sc.nextInt();
             }
 
-            insertionSort(dataArray, numData);
+            shellSort(dataArray, numData);
         }
     }
-    static void insertionSort(int[] dataArray, int n) {
+    static void shellSort(int[] dataArray, int n) {
         int countCmpOps = 0;
         int countSwaps = 0;
 
         // Algorithm
-        for (int i = 1; i < n; i++) {
-            countCmpOps++;
-            for (int j = i; j > 0 && dataArray[j-1] > dataArray[j]; j--) {
-                int tmp = dataArray[j];
-                dataArray[j] = dataArray[j-1];
-                dataArray[j-1] = tmp;
-                countSwaps++;
-                if ((j - 1) > 0) {
-                    countCmpOps++;
-                }
-            }
-        }
+
 
         System.out.println(countCmpOps + " " + countSwaps + " ");
+        //System.out.println(Arrays.toString(dataArray));
     }
 }

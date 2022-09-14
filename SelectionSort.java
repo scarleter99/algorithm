@@ -30,7 +30,6 @@ public class SelectionSort {
                 if (dataArray[j] < dataArray[minIdx]){
                     minIdx = j;
                 }
-
                 countCmpOps++;
             }
 
@@ -38,7 +37,6 @@ public class SelectionSort {
                 int dev = dataArray[i];
                 dataArray[i] = dataArray[minIdx];
                 dataArray[minIdx] = dev;
-
                 countSwaps++;
             }
         }
