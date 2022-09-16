@@ -19,6 +19,7 @@ public class InsertionSort {
             insertionSort(dataArray, numData);
         }
     }
+
     static void insertionSort(int[] dataArray, int n) {
         int countCmpOps = 0;
         int countSwaps = 0;

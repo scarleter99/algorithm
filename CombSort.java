@@ -16,15 +16,39 @@ public class CombSort {
                 dataArray[j] = sc.nextInt();
             }
 
-            shellSort(dataArray, numData);
+            combSort(dataArray, numData);
         }
     }
-    static void shellSort(int[] dataArray, int n) {
+
+    static void combSort(int[] dataArray, int n) {
         int countCmpOps = 0;
         int countSwaps = 0;
 
         // Algorithm
+        int gap = n;
+        double shrink = 1.3;
+        boolean sorted = false;
 
+        while (sorted == false) {
+            gap = (int) (gap/shrink);
+            if (gap <= 1) {
+                gap = 1;
+                sorted = true;
+            }
+
+            int i = 0;
+            while (i + gap < n) {
+                if (dataArray[i] > dataArray[i + gap]) {
+                    int tmp = dataArray[i];
+                    dataArray[i] = dataArray[i + gap];
+                    dataArray[i+ gap] = tmp;
+                    sorted = false;
+                    countSwaps++;
+                }
+                i++;
+                countCmpOps++;
+            }
+        }
 
         System.out.println(countCmpOps + " " + countSwaps + " ");
         //System.out.println(Arrays.toString(dataArray));

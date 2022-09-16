@@ -19,6 +19,7 @@ public class SelectionSort {
             selectionSort(dataArray, numData);
         }
     }
+
     static void selectionSort(int[] dataArray, int n) {
         int countCmpOps = 0;
         int countSwaps = 0;
