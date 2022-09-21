@@ -1,3 +1,5 @@
+package assn1;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -30,18 +32,19 @@ public class BubbleSort {
 
         // Algorithm
         for (int pass = 0; pass < n; pass++) {
-            for (int i = 1; i < n - pass; i++ ) {
+            for (int i = 1; i < n - pass; i++) {
                 if (dataArray[i] < dataArray[i - 1]) {
                     int tmp = dataArray[i];
-                    dataArray[i] = dataArray[i-1];
-                    dataArray[i-1] = tmp;
+                    dataArray[i] = dataArray[i - 1];
+                    dataArray[i - 1] = tmp;
                     countSwaps++;
                 }
                 countCmpOps++;
             }
 
-        System.out.print(countCmpOps + " " + countSwaps + " ");
-        //System.out.println(Arrays.toString(dataArray));
+            System.out.print(countCmpOps + " " + countSwaps + " ");
+            //System.out.println(Arrays.toString(dataArray));
+        }
     }
 
     static void bubbleSortImproved1(int[] dataArray, int n) {

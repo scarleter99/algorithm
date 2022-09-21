@@ -1,3 +1,5 @@
+package assn1;
+
 import java.util.Scanner;
 
 public class CombSort {
@@ -29,7 +31,7 @@ public class CombSort {
         double shrink = 1.3;
         boolean sorted = false;
 
-        while (sorted == false) {
+        while (!sorted) {
             gap = (int) (gap/shrink);
             if (gap <= 1) {
                 gap = 1;
