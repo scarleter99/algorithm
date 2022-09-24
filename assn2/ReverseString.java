@@ -18,12 +18,12 @@ public class ReverseString {
         }
     }
 
-    static void rev(String[] dataArr, int left, int right) {
-        if (left < right) {
-            String tmp = dataArr[left];
-            dataArr[left] = dataArr[right];
-            dataArr[right] = tmp;
-            rev(dataArr, left+1, right - 1);
+    static void rev(String[] dataArr, int begin, int end) {
+        if (begin < end) {
+            String tmp = dataArr[begin];
+            dataArr[begin] = dataArr[end];
+            dataArr[end] = tmp;
+            rev(dataArr, begin+1, end - 1);
         }
     }
 }
