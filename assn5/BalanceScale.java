@@ -3,7 +3,7 @@ package assn5;
 import java.util.Scanner;
 
 public class BalanceScale {
-    static final int MAX_SIZE = 1000;
+    static final int MAX_SIZE = 10000;
     static int[] masses = {1,2,5,10,20,50,100};
     static int num = 0;
 
@@ -19,9 +19,9 @@ public class BalanceScale {
             for (int j = 0; j < numData; j++) {
                 dataArray[j] = sc.nextInt();
             }
-                num = 0;
-                balanceScale(dataArray, numData);
-            }
+            num = 0;
+            balanceScale(dataArray, numData);
+        }
     }
 
     static void balanceScale(int[] dataArray, int n) {
