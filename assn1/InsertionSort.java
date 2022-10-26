@@ -26,7 +26,6 @@ public class InsertionSort {
         int countCmpOps = 0;
         int countSwaps = 0;
 
-        // Algorithm
         for (int i = 1; i < n; i++) {
             countCmpOps++;
             for (int j = i; j > 0 && dataArray[j-1] > dataArray[j]; j--) {

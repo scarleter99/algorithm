@@ -26,7 +26,6 @@ public class ShellSort {
         int countCmpOps = 0;
         int countSwaps = 0;
 
-        // Algorithm
         int shrinkRatio = 2;
         int gap = n / shrinkRatio;
 
@@ -48,6 +47,5 @@ public class ShellSort {
         }
 
         System.out.println(countCmpOps + " " + countSwaps + " ");
-        //System.out.println(Arrays.toString(dataArray));
     }
 }

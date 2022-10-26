@@ -26,7 +26,6 @@ public class SelectionSort {
         int countCmpOps = 0;
         int countSwaps = 0;
 
-        // Algorithm
         for (int i = 0; i < n-1; i++) {
             int minIdx = i;
             for (int j = i + 1; j < n; j++) {

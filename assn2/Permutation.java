@@ -17,12 +17,12 @@ public class Permutation {
             sumPostive = 0;
             String data = sc.next();
             dataArr = data.split("");
-            rev(0, dataArr.length);
+            permutation(0, dataArr.length);
             System.out.println(sumPostive);
         }
     }
 
-    static void rev(int begin, int end) {
+    static void permutation(int begin, int end) {
         int range = end - begin;
 
         if(range == 1) {
@@ -33,7 +33,7 @@ public class Permutation {
                 String tmp1 = dataArr[begin];
                 dataArr[begin] = dataArr[begin + i];
                 dataArr[begin + i] = tmp1;
-                rev(begin + 1, end);
+                permutation(begin + 1, end);
                 String tmp2 = dataArr[begin];
                 dataArr[begin] = dataArr[begin + i];
                 dataArr[begin + i] = tmp2;

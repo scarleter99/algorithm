@@ -53,6 +53,25 @@ public class CombSort {
         }
 
         System.out.println(countCmpOps + " " + countSwaps + " ");
-        //System.out.println(Arrays.toString(dataArray));
+    }
+
+    static void insertionSort(int[] dataArray, int n) {
+        int countCmpOps = 0;
+        int countSwaps = 0;
+
+        for (int i = 1; i < n; i++) {
+            countCmpOps++;
+            for (int j = i; j > 0 && dataArray[j-1] > dataArray[j]; j--) {
+                int tmp = dataArray[j];
+                dataArray[j] = dataArray[j-1];
+                dataArray[j-1] = tmp;
+                countSwaps++;
+                if ((j - 1) > 0) {
+                    countCmpOps++;
+                }
+            }
+        }
+
+        System.out.println(countCmpOps + " " + countSwaps + " ");
     }
 }

@@ -30,7 +30,6 @@ public class BubbleSort {
         int countCmpOps = 0;
         int countSwaps = 0;
 
-        // Algorithm
         for (int pass = 0; pass < n; pass++) {
             for (int i = 1; i < n - pass; i++) {
                 if (dataArray[i] < dataArray[i - 1]) {
@@ -43,7 +42,6 @@ public class BubbleSort {
             }
 
             System.out.print(countCmpOps + " " + countSwaps + " ");
-            //System.out.println(Arrays.toString(dataArray));
         }
     }
 
@@ -51,7 +49,6 @@ public class BubbleSort {
         int countCmpOps = 0;
         int countSwaps = 0;
 
-        // Algorithm
         for (int pass = 0; pass < n; pass++) {
             boolean swapped = false;
             for (int i = 1; i < n - pass; i++ ) {
@@ -70,14 +67,12 @@ public class BubbleSort {
         }
 
         System.out.print(countCmpOps + " " + countSwaps + " ");
-        //System.out.println(Arrays.toString(dataArray));
     }
 
     static void bubbleSortImproved2(int[] dataArray, int n) {
         int countCmpOps = 0;
         int countSwaps = 0;
 
-        // Algorithm
         int lastSwappedPos = n;
         while (lastSwappedPos > 0) {
             int swappedPos = 0;
@@ -95,6 +90,5 @@ public class BubbleSort {
         }
 
         System.out.print(countCmpOps + " " + countSwaps + " ");
-        //System.out.println(Arrays.toString(dataArray));
     }
 }
