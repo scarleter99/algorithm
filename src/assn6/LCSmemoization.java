@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class LCSmemoization {
     static final int MAX_SIZE = 10000;
     static int[][] L;
+    static int[][] S;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -19,29 +20,58 @@ public class LCSmemoization {
             int n = s2.length();
 
             L = new int[m + 1][n + 1];
+            for (int j = 0; j < m + 1; j++)
+                for ( int k = 0; k < n + 1; k++)
+                    L[j][k] = -1;
+            S = new int[m + 1][n + 1];
 
             int answer = lcsMemoization(s1.split(""), s2.split(""), m, n);
-            System.out.println(answer);
+            System.out.print(answer + " ");
+            printLCS(s1.split(""), s2.split(""), m, n);
+            System.out.println();
         }
     }
 
     static int lcsMemoization(String[] s1, String[] s2, int m, int n) {
+        if (m == 0 || n == 0)
+            return 0;
+        else if (L[m][n] != -1) {
+            return L[m][n];
+        }
 
-        for (int i = 0; i <= m; i++)
-            L[i][0] = 0;
-        for (int i = 0; i <= n; i++)
-            L[0][i] = 0;
+        if (Objects.equals(s1[m - 1], s2[n - 1])) {
+            int answer = lcsMemoization(s1, s2, m - 1, n - 1) + 1;
+            L[m][n] = answer;
+            S[m][n] = 0;
+            return answer;
+        } else {
+            int answer = Math.max(lcsMemoization(s1, s2, m - 1, n), lcsMemoization(s1, s2, m, n - 1));
+            L[m][n] = answer;
 
-        for(int i = 1; i <= m; i++)
-            for(int j = 1; j <= n; j++)
-                if (Objects.equals(s1[i - 1], s2[j - 1])){
-                    L[i][j] = L[i-1][j-1]+1;
-                }
-                else{
-                    L[i][j] = Math.max(L[i][j - 1], L[i - 1][j]);
-                }
+            if (L[m][n] == L[m][n-1])
+                S[m][n] = 1;
+            else
+                S[m][n] = 2;
 
-        return L[m][n];
+            return answer;
+        }
+
+    }
+
+    static void printLCS(String[] s1, String[] s2, int m, int n)
+    {
+        if(m==0 || n==0)
+            return;
+
+        if(S[m][n] == 0)
+        {
+            printLCS(s1, s2, m-1, n-1);
+            System.out.print(s1[m-1]);
+        }
+        else if(S[m][n] == 1)
+            printLCS(s1, s2, m, n-1);
+        else if(S[m][n] == 2)
+            printLCS(s1, s2, m-1, n);
     }
 
 }
