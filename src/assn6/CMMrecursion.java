@@ -18,28 +18,23 @@ public class CMMrecursion {
                 numArray[j] = sc.nextInt();
             }
 
-            int answer = cmmRecurtion(numArray, n);
+            int answer = cmmRecursion(numArray, 1, n);
             System.out.println(answer);
         }
     }
 
-    static int cmmRecurtion(int[] nums, int n) {
-        int[][] M = new int[n + 1][n + 1];
+    static int cmmRecursion(int[] nums, int i, int j) {
+        if (i == j)
+            return 0;
 
-        for(int diagonal = 1; diagonal <= n - 1; diagonal++) {
-            for (int i = 1; i <= n - diagonal; i++) {
-                int j = i + diagonal;
-                int minMultNUm = MAX_SIZE;
+        int minMultNUm = MAX_SIZE;
 
-                for (int k = i; k <= j - 1; k++) {
-                    int multNum = M[i][k] + M[k + 1][j] + nums[i - 1] * nums[k] * nums[j];
-                    if (multNum < minMultNUm)
-                        minMultNUm = multNum;
-                }
-                M[i][j] = minMultNUm;
-            }
+        for (int k = i; k <= j - 1; k++) {
+            int multNum = cmmRecursion(nums, i, k) + cmmRecursion(nums,k + 1, j) + nums[i - 1] * nums[k] * nums[j];
+            if (multNum < minMultNUm)
+                minMultNUm = multNum;
         }
 
-        return M[1][n];
+        return minMultNUm;
     }
 }

@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class LCSrecursion {
     static final int MAX_SIZE = 10000;
-    static int[][] L;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -18,30 +17,23 @@ public class LCSrecursion {
             int m = s1.length();
             int n = s2.length();
 
-            L = new int[m + 1][n + 1];
-
             int answer = lcsRecursion(s1.split(""), s2.split(""), m, n);
             System.out.println(answer);
         }
     }
 
     static int lcsRecursion(String[] s1, String[] s2, int m, int n) {
+        if (m == 0 || n == 0)
+            return 0;
 
-        for (int i = 0; i <= m; i++)
-            L[i][0] = 0;
-        for (int i = 0; i <= n; i++)
-            L[0][i] = 0;
+        if (Objects.equals(s1[m - 1], s2[n - 1])) {
+            int answer = lcsRecursion(s1, s2, m - 1, n - 1) + 1;
+            return answer;
+        } else {
+            int answer = Math.max(lcsRecursion(s1, s2, m - 1, n), lcsRecursion(s1, s2, m, n - 1));
+            return answer;
+        }
 
-        for(int i = 1; i <= m; i++)
-            for(int j = 1; j <= n; j++)
-                if (Objects.equals(s1[i - 1], s2[j - 1])){
-                    L[i][j] = L[i-1][j-1]+1;
-                }
-                else{
-                    L[i][j] = Math.max(L[i][j - 1], L[i - 1][j]);
-                }
-
-        return L[m][n];
     }
 
 }
