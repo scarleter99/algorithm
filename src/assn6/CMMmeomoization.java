@@ -46,4 +46,5 @@ public class CMMmeomoization {
         M[i][j] = minMultNUm;
         return minMultNUm;
     }
+
 }

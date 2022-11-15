@@ -26,13 +26,14 @@ public class LCSrecursion {
         if (m == 0 || n == 0)
             return 0;
 
+        int answer;
+
         if (Objects.equals(s1[m - 1], s2[n - 1])) {
-            int answer = lcsRecursion(s1, s2, m - 1, n - 1) + 1;
-            return answer;
+            answer = lcsRecursion(s1, s2, m - 1, n - 1) + 1;
         } else {
-            int answer = Math.max(lcsRecursion(s1, s2, m - 1, n), lcsRecursion(s1, s2, m, n - 1));
-            return answer;
+            answer = Math.max(lcsRecursion(s1, s2, m - 1, n), lcsRecursion(s1, s2, m, n - 1));
         }
+        return answer;
 
     }
 

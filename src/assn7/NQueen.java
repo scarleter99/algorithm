@@ -22,7 +22,6 @@ public class NQueen {
                 nQueen(n, 0);
             }
         }
-
     }
 
     static void nQueen(int n, int row) {
