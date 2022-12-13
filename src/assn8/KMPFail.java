@@ -17,7 +17,7 @@ public class KMPFail {
             int[] fail = getFail(pattern);
             int matchNum = kmpFail(text, pattern, fail);
 
-            for (int j: fail)
+            for(int j: fail)
                 System.out.print(j + " ");
 
             System.out.println( "\n" + matchNum);
@@ -30,12 +30,12 @@ public class KMPFail {
         int matchNum = 0;
         int j = 0;
 
-        for (int i = 0; i < n; i++) {
-            while (j > 0 && text.charAt(i) != pattern.charAt(j))
+        for(int i = 0; i < n; i++) {
+            while(j > 0 && text.charAt(i) != pattern.charAt(j))
                 j = fail[j - 1];
 
-            if (text.charAt(i) == pattern.charAt(j)) {
-                if (j == m - 1) {
+            if(text.charAt(i) == pattern.charAt(j)) {
+                if(j == m - 1) {
                     matchNum++;
                     j = fail[j];
                 } else
@@ -52,11 +52,11 @@ public class KMPFail {
         int j = 0;
         int[] fail = new int[m];
 
-        for (int i = 1; i < m; i++) {
+        for(int i = 1; i < m; i++) {
             while (j > 0 && pattern.charAt(i) != pattern.charAt(j))
                 j = fail[j - 1];
 
-            if (pattern.charAt(i) == pattern.charAt(j))
+            if(pattern.charAt(i) == pattern.charAt(j))
                 fail[i] = ++j;
         }
 

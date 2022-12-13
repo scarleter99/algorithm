@@ -11,7 +11,7 @@ public class HeapSort {
 
         int numTestcase = sc.nextInt();
 
-        for (int i = 0; i < numTestcase; i++) {
+        for(int i = 0; i < numTestcase; i++) {
             int numData = sc.nextInt();
             int[] dataArr = new int[MAX_SIZE];
 
@@ -26,10 +26,10 @@ public class HeapSort {
     }
 
     static void heapSort(int[] dataArr, int n) {
-        for (int i = n/2; i > 0; i--)
+        for(int i = n/2; i > 0; i--)
             fixHeap(dataArr, i, dataArr[i], n);
 
-        for (int i = n; i > 1; i--) {
+        for(int i = n; i > 1; i--) {
             int max = dataArr[1];
             fixHeap(dataArr, 1, dataArr[i], i - 1);
             dataArr[i] = max;
